@@ -1,0 +1,14 @@
+
+.wrap-list {
+  margin: 20px 0 10px;
+  max-height: 400;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .wrap-item {
+    margin: 10px 0;
+  }
+}

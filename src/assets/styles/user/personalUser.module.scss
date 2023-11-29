@@ -1,0 +1,168 @@
+$XS: 600px;
+$SM: 768px;
+$MD: 1024px;
+
+@mixin mobile {
+    @media (max-width: #{$XS}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$SM + 1px}) and (max-width: #{$MD}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$MD + 1px}) {
+        @content;
+    }
+}
+
+.main {
+  margin: 0 10%;
+
+  .infor-main {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 100px;
+    gap: 100px;
+    align-items: center;
+    margin-bottom: 50px;
+
+    .avatar {
+      border-radius: 50%;
+    }
+
+    .infor-main-content {
+      max-width: 450px;
+      word-wrap: break-word;
+
+      .infor-head {
+        margin-bottom: 20px;
+
+        .infor-head-username {
+          margin-right: 30px;
+          font-weight: 400;
+          font-size: 22px;
+        }
+
+        .infor-head-btn {
+          margin-right: 15px;
+        }
+      }
+
+      .infor-second {
+        margin-bottom: 20px;
+
+        .infor-second-item {
+          margin-right: 40px;
+          font-size: 16px;
+
+          .infor-second-amount {
+            font-weight: 600;
+          }
+        }
+      }
+
+      .infor-third {
+        margin-bottom: 20px;
+
+        .infor-third-name {
+          font-weight: 600;
+        }
+      }
+
+      .infor-fourth {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .posts-main {
+    .posts-main-category {
+      padding-top: 15px;
+
+      .posts-main-category-post {
+        margin-bottom: 15px;
+        text-align: center;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .main {
+    margin: 0;
+
+    .infor-main {
+      margin-left: 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main {
+    margin: 0;
+
+    .infor-main {
+      margin-left: 0;
+
+      .avatar {
+        width: 70px;
+        height: 70px;
+      }
+
+      .infor-main-content {
+        max-width: 200px;
+        word-wrap: break-word;
+  
+        .infor-head {
+          margin-bottom: 10px;
+  
+          .infor-head-username {
+            margin-right: 5px;
+            font-weight: 400;
+            font-size: 16px;
+          }
+  
+          .infor-head-btn {
+            margin-right: 5px;
+          }
+        }
+  
+        .infor-second {
+          margin-bottom: 10px;
+          display: flex;
+          flex-direction: column;
+  
+          .infor-second-item {
+            margin-right: 0;
+            font-size: 14px;
+  
+            .infor-second-amount {
+              font-weight: 600;
+            }
+          }
+        }
+  
+        .infor-third {
+          margin-bottom: 10px;
+  
+          .infor-third-name {
+            font-weight: 600;
+            font-size: 14px;
+          }
+        }
+  
+        .infor-fourth {
+          margin-bottom: 10px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

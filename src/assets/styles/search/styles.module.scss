@@ -1,0 +1,50 @@
+.wrap-list-search {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .items {
+    padding: 20px 8px;
+    border-bottom: 1px solid #ececec;
+    border-radius: 6px;
+    margin: 2px 0;
+    
+    &:hover {
+      background: #c6c6c6 !important;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      color: #000;
+      cursor: pointer;
+
+      .wrap-content-item {
+        max-width: 200px;
+        
+        .item-createdAt {
+          color: #919090;
+          font-size: 13px;
+        }
+      }
+    }
+      
+    .avatar {
+      border-radius: 50%;
+    }
+    
+    .username {
+      font-weight: 600;
+      color: #000;
+    }
+
+    .name {
+      color: #000;
+    }
+  }
+}
+  

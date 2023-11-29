@@ -1,0 +1,162 @@
+
+.right-side-modal {
+
+  .head-post-modal {  
+    padding: 7px 0;
+    border-bottom: 1px solid #d5d5d5;
+
+    .head-post-modal-left {
+      padding: 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      
+      justify-content: space-between;
+    }
+  }
+
+  .wrap-list-comments-modal {
+    padding: 0 10px;
+    height: 400px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    border-bottom: 1px solid #d5d5d5;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .wrap-caption-modal {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 10px 0;
+
+      .wrap-caption-modal-content {
+        flex: 1;
+        
+        .time-ago {
+          margin-right: 10px;
+        }
+
+        .reply {
+          cursor: pointer;
+          font-weight: 600;
+          font-size: 13px;
+        }
+      }
+    }
+
+    .wrap-caption {
+      margin-bottom: 20px;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+
+  .wrap-reaction-comment-icon {
+    padding-left: 10px;
+    margin-top: 10px;
+  }
+
+  .amount-of-reactions {
+    padding-left: 10px;
+    font-weight: 600;
+    width: fit-content;
+    cursor: pointer;
+  }
+
+  .post-created-at {
+    padding-left: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d5d5d5;
+  }
+
+  
+
+  .wrap-reply-action {
+    border: 1px solid #d5d5d5;
+    padding: 10px;
+    border-radius: 10px;
+    .input-comment {
+      font-size: 15px;
+    }
+  }
+
+  .wrap-reply-comment {
+
+    .text-view-more-replies {
+      cursor: pointer;
+      color: #898989;
+      width: fit-content;
+
+      &:hover {
+        color: #605f5f;
+      }
+    }
+  }
+}
+.wrap-comment-action {
+  padding: 0 10px;
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+
+  .input-comment {
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    resize: none;
+    overflow-x: visible;
+    padding: 3px 0;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &:focus {
+      border: none;
+      outline: none;
+    }
+  }
+
+  .input-comment-edit {
+    padding: 10px;
+
+    border: 1px solid #d5d5d5;
+    border-radius: 5px;
+
+    &:focus {
+    border: 1px solid #d5d5d5;
+
+    }
+  }
+  
+  .btn-link {
+    color: #000;
+    cursor: pointer;
+  }
+}
+.btn-username {
+  font-weight: 600;
+  color: #000;
+
+  &:hover {
+    color: #504f4f;
+  }
+}
+
+.head-post-modal-mb {  
+  padding: 7px 0;
+
+  .head-post-modal-left-mb {
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    justify-content: space-between;
+  }
+}

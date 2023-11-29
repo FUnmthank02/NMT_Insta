@@ -1,0 +1,118 @@
+.wrap-message-box {
+  height: 95vh;
+  max-height: 95vh;
+
+  .message-head {
+    padding: 15px 0;
+    border-bottom: 1px solid #d5d5d5;
+
+    .message-head-left {
+      cursor: pointer;
+    }
+    .head-avatar {
+      border-radius: 50%;
+    }
+
+    .head-name {
+      font-weight: 600;
+      font-size: 18px;
+    }
+  }
+
+  .wrap-content-message {
+    margin: 20px 0;
+    padding-right: 20px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar-track
+    {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      border-radius: 10px;
+      background-color: #F5F5F5;
+    }
+
+    &::-webkit-scrollbar
+    {
+      width: 6px;
+      background-color: #F5F5F5;
+    }
+
+    &::-webkit-scrollbar-thumb
+    {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+      background-color: #776B5D;
+    }
+
+    .wrap-item {
+      margin: 2px;
+
+      .head-avatar {
+        border-radius: 50%;
+      }
+      
+      .wrap-text {
+        border-radius: 15px;
+        width: fit-content;
+        padding: 8px 11px;
+        max-width: 50%;
+        overflow-wrap: break-word;
+        background-color: #e7e6e6;
+        color: #000000;
+      }
+      
+      .wrap-text-owner {
+        border-radius: 15px;
+        width: fit-content;
+        padding: 8px 11px;
+        max-width: 50%;
+        overflow-wrap: break-word;
+        background-color: #3797f0;
+        color: #ffffff;
+      }
+    }
+  }
+
+  .wrap-input {
+    position: relative;
+
+    .input-box {
+      width: 100%;
+      border-radius: 35px;
+      padding: 10px 50px 10px 10px;
+      resize: none;
+      overflow-y: visible;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      &:focus {
+        outline: #d5d5d5;
+      }
+    }
+    .btn-send {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      margin-right: 10px;
+      color: #007aff;
+      cursor: pointer;
+      font-weight: 500;
+
+      &:hover {
+        color: #51a2f9;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .wrap-message-box {
+    height: 80vh;
+    max-height: 80vh;
+  }
+}

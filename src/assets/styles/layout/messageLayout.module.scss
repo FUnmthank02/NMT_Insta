@@ -1,0 +1,52 @@
+
+.wrap-main {
+  display: flex;
+  gap: 30px;
+
+  .aside {
+    width: 28%;
+    padding: 0 34px 0 10px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    border-right: 1px solid #ccc;
+    min-height: 93vh;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .title {
+      font-weight: bold;
+      margin: 20px 0;
+      padding: 15px 0;
+      font-size: 23px;
+    }
+
+      .item {
+        padding: 15px;
+        border-radius: 8px;
+        color: #000;
+        font-size: 16px;
+
+        &:hover {
+          background:#efefef;
+        }
+      } 
+  }
+}
+
+
+
+@media screen and (max-width: 768px) {
+  
+}
+
+@media screen and (max-width: 600px) {
+  .wrap-main {
+    .aside {
+      min-height: 70vh;
+      border: none;
+      flex: 1;
+    }
+  }
+}

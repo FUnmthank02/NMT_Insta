@@ -1,11 +1,12 @@
-import { ERROR_CODE } from "@/utilities/enums";
+import { ENDPOINT_API, HTTP_STATUS_CODE, ROUTE_PATH } from "@/utilities/enums";
 import { getLocalStorage, removeLocalStorage, setLocalStorage } from "@/utilities/helper";
 import STORAGE from "@/utilities/storage";
 import axios from "axios";
+import Http from "./http";
 
 
 const HttpAuth = axios.create({
-  baseURL: process.env.API_LINK,
+  baseURL: process.env.NEXT_PUBLIC_API_LINK,
   timeout: 30000,
   headers: {
     "Content-Type": "application/json",
@@ -14,7 +15,12 @@ const HttpAuth = axios.create({
 })
 
 function refreshToken() {
-  return HttpAuth.get("/user/refreshToken").then((res) => res.data);
+  const data = {
+    accessToken: getLocalStorage(STORAGE.accessToken),
+    refreshToken: getLocalStorage(STORAGE.refreshToken)
+  }
+  return Http.post(ENDPOINT_API.refreshToken, data)
+    .then((res) => res.data.data);
 }
 
 const IS_SERVER = typeof window === "undefined";
@@ -40,20 +46,21 @@ HttpAuth.interceptors.response.use(
   (error) => {
     const { config, response } = error;
     if (
-      response.status === ERROR_CODE.INTERNAL_SERVER_ERROR ||
-      response.status === ERROR_CODE.BAD_REQUEST
+      response.status === HTTP_STATUS_CODE.INTERNAL_SERVER_ERROR ||
+      response.status === HTTP_STATUS_CODE.BAD_REQUEST
     ) {
       return Promise.reject(error);
     }
     if (
       response &&
-      response.status === ERROR_CODE.NOT_FOUND &&
-      !config?.url?.includes("/user/refreshToken")
+      response.status === HTTP_STATUS_CODE.NOT_FOUND &&
+      !config?.url?.includes(ENDPOINT_API.refreshToken)
     ) {
       return refreshToken()
         .then((res) => {
-          const { accessToken = null } = res;
-          setLocalStorage("accessToken", accessToken);
+          const { accessToken = null, refreshToken = null } = res;
+          setLocalStorage(STORAGE.accessToken, accessToken);
+          setLocalStorage(STORAGE.refreshToken, refreshToken);
           if (config.headers) {
             config.headers.Authorization = `Bearer ${accessToken}`;
           }
@@ -61,12 +68,12 @@ HttpAuth.interceptors.response.use(
         })
         .catch(() => {
           removeLocalStorage();
-          window.location.href = "/login";
+          window.location.href = ROUTE_PATH.signIn;
         });
     } else {
       delete axios.defaults.headers.common["Authorization"];
       removeLocalStorage();
-      window.location.href = "/login";
+      window.location.href = ROUTE_PATH.signIn;
     }
     return Promise.reject(error);
   },
