@@ -31,29 +31,28 @@ export const getTimeAgo = (createdAt: Date) => {
   const timeAgo = Date.now() - new Date(createdAt).getTime();
   let unit;
   if (timeAgo < 60000) {
-    // 1 minute
     unit = 'just now';
   } else if (timeAgo < 3600000) {
-    // 1 hour
     unit =
       Math.floor(timeAgo / 60000) + ` ${Math.floor(timeAgo / 60000) === 1 ? 'minute' : 'minutes'}`;
   } else if (timeAgo < 86400000) {
-    // 1 day
     unit =
       Math.floor(timeAgo / 3600000) + ` ${Math.floor(timeAgo / 3600000) === 1 ? 'hour' : 'hours'}`;
   } else if (timeAgo < 604800000) {
-    // 1 week
     unit =
       Math.floor(timeAgo / 86400000) + ` ${Math.floor(timeAgo / 86400000) === 1 ? 'day' : 'days'}`;
   } else if (timeAgo < 2592000000) {
-    // 1 month
     unit =
       Math.floor(timeAgo / 604800000) +
-      ` ${Math.floor(timeAgo / 604800000) === 1 ? 'month' : 'months'}`;
-  } else {
+      ` ${Math.floor(timeAgo / 604800000) === 1 ? 'week' : 'weeks'}`;
+  } else if (timeAgo < 31536000000) {
     unit =
       Math.floor(timeAgo / 2592000000) +
-      ` ${Math.floor(timeAgo / 2592000000) === 1 ? 'year' : 'years'}`;
+      ` ${Math.floor(timeAgo / 2592000000) === 1 ? 'month' : 'months'}`;
+  } else {
+    unit =
+      Math.floor(timeAgo / 31536000000) +
+      ` ${Math.floor(timeAgo / 31536000000) === 1 ? 'year' : 'years'}`;
   }
   return unit;
 };

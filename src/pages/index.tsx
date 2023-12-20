@@ -215,6 +215,11 @@ export default function Home() {
     handleRefresh();
   };
 
+  const extractTextFromHtml = (htmlString: string) => {
+    const doc = new DOMParser().parseFromString(htmlString, 'text/html');
+    return doc.body.textContent || '';
+  };
+
   const items: MenuProps['items'] = [
     {
       label: <span onClick={showModalEdit}>Edit</span>,
@@ -304,16 +309,18 @@ export default function Home() {
                           >
                             {post?.media?.length > 0 &&
                               post.media.map((item: any, index: number) => (
-                                <SwiperSlide key={index}>
+                                <SwiperSlide key={index} style={{height: "585px"}}>
                                   {item?.mediaType === MEDIA_TYPE.image ? (
                                     <img
                                       src={item?.mediaUrl || defaultAvt.src}
                                       alt='img'
+                                      style={{width: "100%", height: "100%"}}
                                     />
                                   ) : (
                                     <video
                                       src={item?.mediaUrl}
-                                      autoPlay={false}
+                                      autoPlay={false} controls
+                                      style={{width: "100%", height: "100%"}}
                                     ></video>
                                   )}
                                 </SwiperSlide>
@@ -356,7 +363,7 @@ export default function Home() {
                               {post?.user?.username || 'N/A'}
                             </Link>
                             &ensp;
-                            <span className={styles['caption']}>{post?.caption || 'N/A'}</span>
+                            <span className={styles['caption']}>{extractTextFromHtml(post?.caption) || 'N/A'}</span>
                           </div>
                           {post?.comments?.length > 1 && (
                             <div

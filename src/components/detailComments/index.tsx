@@ -56,14 +56,15 @@ const modalReducer = (state: any, action: any) => {
 const DetailComments = ({ post, handleRefresh, closeModalComment }: any) => {
 
   const [modalState, dispatchReducer] = useReducer(modalReducer, initialModalState);
-
+  
+  const currentUser = useSelector((state: RootState) => state.auth.user);
   const [repliesVisible, setRepliesVisible] = useState<{
     [key: number]: { [key: number]: boolean };
   }>({});
   const [inputRepliesVisible, setInputRepliesVisible] = useState<{
     [key: number]: { [key: number]: boolean };
   }>({});
-  const [userIdReplied, setUserIdReplied] = useState<number>(0);
+  const [userIdReplied, setUserIdReplied] = useState<number>(currentUser?.userId);
   const [replyCommentId, setReplyCommentId] = useState<number>(0);
   const [parentCommentId, setParentCommentId] = useState<number>(0);
   const [detailPost, setDetailPost] = useState<any>(post);
@@ -75,7 +76,6 @@ const DetailComments = ({ post, handleRefresh, closeModalComment }: any) => {
   const [text, setText] = useState<string>("");
   const [curWidth, setCurWidth] = useState(window.innerWidth);
 
-  const currentUser = useSelector((state: RootState) => state.auth.user);
   const postState = useSelector((state: RootState) => state.post);
   const commentState = useSelector((state: RootState) => state.comment);
   const dispatch = useDispatch();
@@ -129,6 +129,8 @@ const DetailComments = ({ post, handleRefresh, closeModalComment }: any) => {
 
   const handleSubmitComment = (content: string, postId: number, parentCommentId?: number) => {
     if (content.trim() !== "") {
+      // setUserIdReplied(currentUser?.userId);
+
       const addCommentModel: AddCommentModel = {
         content: content.trim(),
         postId: postId,
