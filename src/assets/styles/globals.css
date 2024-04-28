@@ -134,6 +134,9 @@ a {
   font-size: 16px;
 }
 
+.ant-dropdown {
+  z-index: 10002 !important;
+}
 .swiper-button-prev:after, .swiper-button-next:after {
   font-size: 15px !important;
   font-weight: bold !important;

@@ -89,7 +89,7 @@ const NotificationComponent = ({ closeNotify }: any) => {
 
   const items: MenuProps['items'] = [
     {
-      label: <Flex align='center' onClick={handleMarkAllAsRead}>
+      label: <Flex style={{zIndex: 1000000}} align='center' onClick={handleMarkAllAsRead}>
         <CheckOutlined style={{ fontSize: 16 }}/>&ensp;Mark all as read</Flex>,
       key: '0',
     },
@@ -98,6 +98,7 @@ const NotificationComponent = ({ closeNotify }: any) => {
   return (
     <>
       <div className={styles['wrap-list-search']}>
+      
         {listNotification?.length > 0 && (
           <Flex justify='flex-end' style={{marginBottom: 20}}>
             <Dropdown
@@ -110,6 +111,7 @@ const NotificationComponent = ({ closeNotify }: any) => {
                 style={{ fontSize: 25 }}
               />
             </Dropdown>
+          
           </Flex>
         )}
         {listNotification?.length > 0 ? (

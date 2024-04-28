@@ -39,3 +39,26 @@
     }
   }
 }
+
+@media screen and (max-width: 1500px) {
+  .posts-main-post-media {
+    width: 100% !important;
+    height: 203px !important;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .posts-main-post-media {
+    width: 100% !important;
+    height: 203px !important;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .posts-main-post-media {
+    width: 100% !important;
+    height: 110px !important;
+  }
+}

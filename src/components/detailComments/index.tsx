@@ -403,7 +403,7 @@ const DetailComments = ({ post, handleRefresh, closeModalComment }: any) => {
               <div className={styles['head-post-modal-mb']}>
                 <div className={styles['head-post-modal-left-mb']}>
                   <Flex gap={10} align='center'>
-                    <Image
+                    <Image 
                       src={post?.user?.avatar || defaultAvt}
                       alt='avt'
                       width={30}
@@ -443,10 +443,12 @@ const DetailComments = ({ post, handleRefresh, closeModalComment }: any) => {
               post.media.map((item: any, index: number) => (
                 <SwiperSlide key={index} style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
                   {item?.mediaType === MEDIA_TYPE.image ? (
-                    <img
+                    <Image
+                      fill
+                      sizes='100%'
                       src={item?.mediaUrl || defaultAvt.src}
                       alt='img'
-                      height={585} width={"100%"}
+                      
                     />
                   ) : (
                     <video
@@ -468,7 +470,7 @@ const DetailComments = ({ post, handleRefresh, closeModalComment }: any) => {
               <div className={styles['head-post-modal']}>
                 <div className={styles['head-post-modal-left']}>
                   <Flex gap={10} align='center'>
-                    <Image
+                    <Image 
                       src={post?.user?.avatar || defaultAvt}
                       alt='avt'
                       width={30}
@@ -495,7 +497,7 @@ const DetailComments = ({ post, handleRefresh, closeModalComment }: any) => {
             <div className={styles['wrap-list-comments-modal']}>
               {/* Caption */}
               <div className={`${styles['wrap-caption-modal']} ${styles['wrap-caption']}`}>
-                <Image
+                <Image 
                   src={post?.user?.avatar || defaultAvt}
                   alt='avt'
                   width={30}
@@ -525,7 +527,7 @@ const DetailComments = ({ post, handleRefresh, closeModalComment }: any) => {
                       className={styles['wrap-caption-modal']}
                       key={index}
                     >
-                      <Image
+                      <Image 
                         src={comment?.user?.avatar || defaultAvt}
                         alt='avt'
                         width={30}
@@ -590,7 +592,7 @@ const DetailComments = ({ post, handleRefresh, closeModalComment }: any) => {
                               >
                                 {repliesVisible[comment.parentCommentId]?.[comment.commentId] && (
                                   <div className={styles['wrap-caption-modal']}>
-                                    <Image
+                                    <Image 
                                       src={replyCmt?.user?.avatar || defaultAvt}
                                       alt='avt'
                                       width={30}

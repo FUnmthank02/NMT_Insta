@@ -56,8 +56,8 @@ const ListPosts = ({ posts, refresh }: any) => {
                     src={post?.media[0]?.mediaUrl || defaultAvt}
                     alt='post'
                     width={313}
-                    style={{width: '100% !important'}}
                     height={313}
+                    style={{width: 'auto !important', height: 'auto !important  '}}
                   /> :
                   <video className={styles['posts-main-post-media']} src={post?.media[0]?.mediaUrl} 
                   autoPlay={false} width={313} height={313} />

@@ -311,10 +311,13 @@ export default function Home() {
                               post.media.map((item: any, index: number) => (
                                 <SwiperSlide key={index} style={{height: "585px"}}>
                                   {item?.mediaType === MEDIA_TYPE.image ? (
-                                    <img
+                                    <Image
+                                      priority
+                                      fill
+                                      sizes='100%'
                                       src={item?.mediaUrl || defaultAvt.src}
                                       alt='img'
-                                      style={{width: "100%", height: "100%"}}
+                                      
                                     />
                                   ) : (
                                     <video
